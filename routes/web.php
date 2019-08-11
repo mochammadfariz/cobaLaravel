@@ -11,15 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
 
-Route::get('/about', function () {
-    $nama = 'Mochammad Fariz Syah Lazuardy Suka sama Sarah';
-    return view('about',['namak' => $nama]);
-});
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/','PagesController@home');
+Route::get('/about','PagesController@about');
