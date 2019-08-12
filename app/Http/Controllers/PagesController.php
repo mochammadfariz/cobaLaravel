@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-     public function home()
+    public function home()
     {
         return view('index');
     }
 
     public function about()
     {
-        return view('about',['namak' =>'Sandhika Galih']);
+        return view('about',['namak' => 'Mochammad Fariz suka sama sarah']);
     }
 }
