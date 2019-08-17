@@ -25,7 +25,7 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        //
+        return view('students.create');
     }
 
     /**
@@ -36,7 +36,32 @@ class StudentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // --------------- Cara PERTAMA -------------------//
+        // $student = new Student;
+        // $student->nama = $request->nama;
+        // $student->nrp = $request->nrp;
+        // $student->email = $request->email;
+        // $student->jurusan = $request->jurusan;
+
+        // $student->save();
+
+        // return redirect('/students');
+
+         // --------------- Cara KEDUA -------------------//
+        // Student::create([
+        //     'nama' => $request->nama,
+        //     'nrp' => $request->nrp,
+        //     'email' => $request->email,
+        //     'jurusan' => $request->jurusan
+        //      ]);
+
+        //      return redirect('/students');
+
+         // --------------- Cara KETIGA -------------------//
+        //  kalo fillable column udah ditambahkan pada mass assignment maka bisa jadi 1 baris seperti pada dibawah sini:
+
+        Student::create($request->all());
+        return redirect('/students');
     }
 
     /**
