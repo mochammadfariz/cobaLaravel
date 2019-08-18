@@ -60,8 +60,22 @@ class StudentsController extends Controller
          // --------------- Cara KETIGA -------------------//
         //  kalo fillable column udah ditambahkan pada mass assignment maka bisa jadi 1 baris seperti pada dibawah sini:
 
+        
+
+$messages = [
+    'required' => ':attribute wajib diisi ',
+    'min' => ':attribute harus diisi minimal :min karakter ya cuy!!!',
+    'max' => ':attribute harus diisi maksimal :max karakter ya cuy!!!',
+    'size'=> 'panjang :attribute  harus 9 digit angka',
+    'numeric' => ':attribute hanya di isi angka'
+];
+        $request->validate([
+        'nama' => 'required',
+        'nrp' => 'required|size:9|numeric',
+        ],$messages);
+
         Student::create($request->all());
-        return redirect('/students');
+        return redirect('/students')->with('status','Data Mahasiswa Berhasil ditambahkan!');
     }
 
     /**
